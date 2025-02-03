@@ -25,18 +25,19 @@ body {
 }
 
 .filter-btn[data-selected="true"] {
-    background-color: #888;
+    background-color: #555;
     color: white;
+    font-weight: bold;
 }
 
 .cities-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 165px); /* Colunas fixas de 165px */
+    grid-template-columns: repeat(auto-fill, 165px);
     gap: 30px;
     padding: 20px;
     max-width: 1366px;
     margin: auto;
-    justify-content: center; /* Centraliza o grid */
+    justify-content: center;
 }
 
 .city-card {
@@ -51,14 +52,20 @@ body {
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.city-card:hover {
+    transform: scale(1.05);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .city-card img {
-    width: 160px; /* Reduzi a largura */
+    width: 160px;
     height: 160px;
     object-fit: cover;
     border-radius: 5px;
-    margin: 0 auto 5px auto; /* Adicionei margem inferior */
+    margin: 0 auto 5px auto;
     display: block;
 }
 
@@ -72,12 +79,12 @@ body {
     border-radius: 5px;
     font-size: 14px;
     color: #555;
-    margin: 0 auto 5px auto; /* Adicionei margem inferior */
+    margin: 0 auto 5px auto;
 }
 
 .city-card h3 {
     font-size: 16px;
-    margin: 10px 0;
+    margin: 5px 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -85,7 +92,7 @@ body {
 
 .city-card p {
     font-size: 14px;
-    margin: 5px 0;
+    margin: 3px 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -95,4 +102,23 @@ body {
     font-size: 18px;
     color: #888;
     margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .cities-container {
+        grid-template-columns: repeat(auto-fill, 150px);
+        gap: 15px;
+    }
+    .city-card {
+        width: 150px;
+        height: 230px;
+    }
+    .city-card img {
+        width: 140px;
+        height: 140px;
+    }
+    .no-image {
+        width: 140px;
+        height: 140px;
+    }
 }
