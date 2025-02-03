@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.filters {
+    margin-bottom: 20px;
+}
+
+.filter-btn, #clear-filters {
+    background-color: #ddd;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.filter-btn[data-selected="true"] {
+    background-color: #555;
+    color: white;
+    font-weight: bold;
+}
+
+.cities-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 165px);
+    gap: 30px;
+    padding: 20px;
+    max-width: 1366px;
+    margin: auto;
+    justify-content: center;
+}
+
+.city-card {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 180px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.city-card:hover {
+    transform: scale(1.05);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.city-card img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin: 0 auto 5px auto;
+    display: block;
+}
+
+.no-image {
+    width: 150px;
+    height: 160px;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #555;
+    margin: 0 auto 5px auto;
+}
+
+.city-card h3 {
+    font-size: 16px;
+    margin: 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.city-card p {
+    font-size: 14px;
+    margin: 3px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.no-results {
+    font-size: 18px;
+    color: #888;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .cities-container {
+        grid-template-columns: repeat(auto-fill, 150px);
+        gap: 15px;
+    }
+    .city-card {
+        width: 150px;
+        height: 230px;
+    }
+    .city-card img {
+        width: 140px;
+        height: 140px;
+    }
+    .no-image {
+        width: 140px;
+        height: 140px;
+    }
+}
