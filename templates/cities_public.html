@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cities</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Citydex - Cidades</h1> 
+
+    <!-- Filtros de cores -->
+    <div class="filters">
+        {% for color in available_colors %}
+            <button class="filter-btn" data-color="{{ color }}"
+                {% if color in selected_colors %} data-selected="true"{% endif %}>
+                {{ color }}
+            </button>
+        {% endfor %}
+        <button id="clear-filters">Limpar Filtros</button>
+    </div>
+
+    <!-- Container de cidades -->
+    <div class="cities-container">
+        {% if cities %}
+            {% for city in cities %}
+                <div class="city-card" data-colors="{{ city.colors }}">
+                    {% if city.image %}
+                        <img src="{{ city.image.url }}" alt="{{ city.name }}">
+                    {% else %}
+                        <div class="no-image">Sem imagem</div>
+                    {% endif %}
+                    <h3>{{ city.name }}</h3>
+                    <p>Rarity: #{{ city.description }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-results">Nenhuma cidade encontrada.</p>
+        {% endif %}
+    </div>
+
+    <script src="{% static 'js/filters.js' %}"></script>
+</body>
+</html>
